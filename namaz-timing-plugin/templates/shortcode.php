@@ -29,18 +29,15 @@
         <button type="button" class="ntp-btn"></button>
     </div>
 
-    <div class="ntp-card ntp-result-card" hidden>
-        <div class="ntp-result-header">
-            <div>
-                <p class="ntp-meta-label"><?php esc_html_e('Upcoming Prayer', 'namaz-timing-pro'); ?></p>
-                <h4 class="ntp-next-prayer"></h4>
-            </div>
-            <div>
-                <p class="ntp-meta-label"><?php esc_html_e('Time Remaining', 'namaz-timing-pro'); ?></p>
-                <p class="ntp-countdown"></p>
-            </div>
-        </div>
+    <div class="ntp-card ntp-upcoming-card" hidden>
+        <p class="ntp-meta-label"><?php esc_html_e('Upcoming Prayer', 'namaz-timing-pro'); ?></p>
+        <h4 class="ntp-next-prayer"></h4>
+        <p class="ntp-countdown"></p>
         <p class="ntp-location"></p>
+    </div>
+
+    <div class="ntp-card ntp-table-card" hidden>
+        <h4 class="ntp-table-title"><?php esc_html_e('Today\'s Prayer Timings', 'namaz-timing-pro'); ?></h4>
         <table class="ntp-table">
             <thead>
                 <tr>

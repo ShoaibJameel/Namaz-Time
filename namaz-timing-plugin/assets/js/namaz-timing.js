@@ -7,7 +7,8 @@
     const methodInput = widget.querySelector('.ntp-method');
     const button = widget.querySelector('.ntp-btn');
     const message = widget.querySelector('.ntp-message');
-    const resultCard = widget.querySelector('.ntp-result-card');
+    const upcomingCard = widget.querySelector('.ntp-upcoming-card');
+    const tableCard = widget.querySelector('.ntp-table-card');
     const nextPrayerEl = widget.querySelector('.ntp-next-prayer');
     const countdownEl = widget.querySelector('.ntp-countdown');
     const locationEl = widget.querySelector('.ntp-location');
@@ -41,17 +42,20 @@
       const tick = () => {
         const now = Math.floor(Date.now() / 1000);
         const left = Math.max(timestamp - now, 0);
-        countdownEl.textContent = formatCountdown(left);
+        countdownEl.textContent = `${NTPData.i18n.countdown}: ${formatCountdown(left)}`;
       };
 
       tick();
       countdownTimer = setInterval(tick, 1000);
     }
 
-    function renderTimings(timings) {
+    function renderTimings(timings, upcomingName) {
       tbody.innerHTML = '';
       Object.entries(timings).forEach(([name, time]) => {
         const row = document.createElement('tr');
+        if (name === upcomingName) {
+          row.classList.add('ntp-row-upcoming');
+        }
         row.innerHTML = `<td>${name}</td><td>${time}</td>`;
         tbody.appendChild(row);
       });
@@ -90,10 +94,11 @@
         }
 
         const { timings, meta, nextPrayer } = payload.data;
-        resultCard.hidden = false;
+        upcomingCard.hidden = false;
+        tableCard.hidden = false;
         nextPrayerEl.textContent = `${nextPrayer.name} - ${nextPrayer.time}`;
         locationEl.textContent = `${NTPData.i18n.location}: ${meta.location} (${meta.date})`;
-        renderTimings(timings);
+        renderTimings(timings, nextPrayer.name);
         startCountdown(nextPrayer.timestamp);
         setMessage('');
       } catch (error) {
@@ -104,5 +109,9 @@
     }
 
     button.addEventListener('click', fetchPrayerTimes);
+
+    if (cityInput.value.trim() && countryInput.value.trim()) {
+      fetchPrayerTimes();
+    }
   });
 })();
