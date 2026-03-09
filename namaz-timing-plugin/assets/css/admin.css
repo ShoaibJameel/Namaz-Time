@@ -1,0 +1,46 @@
+.ntp-admin-wrap {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.ntp-admin-tabs { margin: 18px 0; }
+.ntp-panel { display: none; }
+.ntp-panel.is-active { display: block; }
+
+.ntp-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ntp-kpi-card, .ntp-card {
+  background: #fff;
+  border: 1px solid #e8ebf5;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.ntp-kpi-card p {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
+.ntp-card ol li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef1f7;
+  padding: 8px 0;
+}
+
+.ntp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ntp-form-grid label span { display: block; margin-bottom: 6px; }
+.ntp-form-grid input { width: 100%; }
+.ntp-admin-message { margin-top: 10px; color: #1255cc; }
+.ntp-admin-message.error { color: #bb2330; }
