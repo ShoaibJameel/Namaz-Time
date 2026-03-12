@@ -1,0 +1,40 @@
+.ntp-widget {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.ntp-card {
+  background: linear-gradient(145deg, #ffffff, #effcf3);
+  border: 1px solid #d8f1e0;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(6, 95, 70, 0.1);
+  margin-bottom: 16px;
+}
+
+.ntp-title { margin-top: 0; color: #065f46; }
+.ntp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.ntp-grid label span { display: block; font-size: 13px; margin-bottom: 6px; color: #166534; }
+.ntp-grid input, .ntp-grid select {
+  width: 100%; padding: 10px 12px; border: 1px solid #b7e4c7; border-radius: 10px;
+}
+
+.ntp-btn {
+  margin-top: 16px; border: 0; background: #16a34a; color: #fff; padding: 12px 18px;
+  border-radius: 12px; cursor: pointer; font-weight: 600;
+}
+
+.ntp-btn:disabled { opacity: .65; cursor: not-allowed; }
+
+.ntp-meta-label { color: #15803d; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+.ntp-next-prayer { margin: 0; color: #14532d; }
+.ntp-countdown { font-weight: 700; color: #166534; margin: 8px 0; }
+.ntp-location { margin-top: 8px; color: #166534; }
+.ntp-table-title { margin: 0 0 12px; color: #065f46; }
+.ntp-table { width: 100%; border-collapse: collapse; }
+.ntp-table th, .ntp-table td { padding: 10px; border-bottom: 1px solid #d1fae5; text-align: left; }
+.ntp-table thead th { color: #166534; }
+.ntp-row-upcoming td { background: #dcfce7; color: #14532d; font-weight: 700; }
+.ntp-message { margin-top: 10px; color: #16a34a; }
+.ntp-message.error { color: #b91c1c; }
